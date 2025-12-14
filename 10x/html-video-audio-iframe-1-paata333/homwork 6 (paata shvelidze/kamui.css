@@ -1,0 +1,19 @@
+body{
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    font-family: sans-serif;
+    text-align: center;
+}
+img{
+    width: 500;
+}
+video{
+    width: 400;
+    height: 300;
+}
+a{
+    display: block;
+}
+li{
+    margin-top: 20px;
+}

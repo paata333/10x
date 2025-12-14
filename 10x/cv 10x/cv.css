@@ -1,0 +1,78 @@
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{
+    background:var(--bg);
+    color:var(--text);
+    display:flex;justify-content:center;align-items:center;
+    min-height:100vh;padding:40px;
+    transition:.3s;
+}
+
+/* THEMES */
+:root{--bg:#ffffff;--text:#000;--card:#f5f5f5;--accent:#00a2ff;}
+.dark{--bg:#0f0f0f;--text:#e6e6e6;--card:#1a1a1a;--accent:#ff8a00;}
+
+#theme-toggle{
+    position:fixed;top:15px;right:15px;
+    font-size:20px;padding:8px 10px;
+    cursor:pointer;border:none;border-radius:6px;
+}
+
+/* MAIN CARD */
+.cv-container{
+    width:90%;max-width:900px;
+    background:var(--card);padding:40px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(0,0,0,.1);
+}
+
+/* PROFILE */
+.profile-section{text-align:center;margin-bottom:25px;}
+.profile-img{
+    width:120px;height:120px;border-radius:50%;object-fit:cover;
+    margin-bottom:10px;border:3px solid var(--accent);
+}
+.name{font-size:32px;font-weight:700;}
+.role{opacity:.7;margin-top:3px;font-size:15px;}
+
+/* HEADERS */
+section h2{
+    font-size:22px;margin:15px 0;
+    border-left:4px solid var(--accent);padding-left:10px;
+}
+
+/* SKILL CIRCLES */
+.skill-circles{display:flex;gap:20px;flex-wrap:wrap;}
+.circle{
+    width:100px;height:100px;border-radius:50%;
+    border:6px solid var(--accent);
+    display:flex;justify-content:center;align-items:center;
+    font-size:20px;font-weight:bold;cursor:pointer;
+    position:relative;transition:.3s;
+}
+.circle:hover{border-color:red;color:red;}
+.circle[data-progress]:before{
+    content:"";position:absolute;inset:0;border-radius:50%;
+    border:6px solid var(--accent);
+    clip-path:polygon(50% 0,100% 0,100% 100%,0 100%,0 0,50% 0);
+    transform-origin:center;
+    transform:rotate(calc(var(--p)*3.6deg));
+}
+.circle{--p:0;}
+.circle.loaded{--p:attr(data-progress);}
+
+/* TIMELINE */
+.timeline{border-left:3px solid var(--accent);padding-left:20px;margin-top:10px;}
+.time-item{margin-bottom:15px;position:relative;transition:.3s;cursor:pointer;}
+.time-item:hover{color:var(--accent);}
+.dot{
+    width:12px;height:12px;background:var(--accent);border-radius:50%;
+    position:absolute;left:-27px;top:6px;transition:.3s;
+}
+.time-item:hover .dot{background:red;}
+
+/* CONTACT */
+.contact a{color:var(--accent);font-weight:bold;text-decoration:none;}
+.contact a:hover{text-decoration:underline;}
+
+@media(max-width:700px){.skill-circles{justify-content:center;}}
