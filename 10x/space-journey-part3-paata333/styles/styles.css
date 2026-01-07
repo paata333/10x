@@ -1,0 +1,544 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;600&display=swap");
+
+:root {
+  --bg-dark: #0b0c10;
+  --card-bg: rgba(20, 24, 30, 0.85); /* Slightly darker for better contrast */
+  --neon-blue: #66fcf1;
+  --neon-purple: #c51162;
+  --neon-green: #39ff14;
+  --text-main: #e0e0e0;
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Exo 2", sans-serif;
+}
+
+/* --- GLOBAL RESETS & SCROLLBAR --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden; /* Prevents horizontal scroll from shooting stars */
+}
+
+/* Custom "Space" Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+  border-radius: 5px;
+  border: 2px solid #000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-purple);
+}
+
+/* High-Tech Text Selection */
+::selection {
+  background: var(--neon-purple);
+  color: #fff;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* Darker gradient overlay to make stars pop */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("../assets/hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  padding: 50px;
+  background: rgba(11, 12, 16, 0.6); /* Glass dark */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(0);
+  animation: floatContent 6s ease-in-out infinite;
+}
+
+/* Subtle floating animation for the hero box */
+@keyframes floatContent {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+h1.glow-text {
+  font-family: var(--font-heading);
+  font-size: 5rem; /* Bigger impact */
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  /* Pulsing Neon Animation */
+  animation: neonPulse 3s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple),
+      0 0 80px var(--neon-purple);
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px rgba(102, 252, 241, 0.5);
+  letter-spacing: 2px;
+}
+
+.cta-button {
+  padding: 18px 40px;
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 3px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Hover Effect - "Engage" feel */
+.cta-button:hover {
+  background: var(--neon-blue);
+  color: var(--bg-dark);
+  box-shadow: 0 0 40px var(--neon-blue);
+  transform: scale(1.05);
+}
+
+/* =========================================
+   STAR EFFECTS LAYERS (PARALLAX, METEORS, COMETS)
+========================================= */
+
+#stars,
+#stars2,
+#stars3,
+.meteors-container,
+.comet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* --- 1. PARALLAX STARS --- */
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 1744px 122px #fff, 134px 1321px #fff, 500px 500px #fff,
+    800px 100px #fff, 1200px 600px #fff, 300px 800px #fff, 1400px 900px #fff;
+  animation: animStar 50s linear infinite;
+}
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 100px 1000px #fff, 500px 200px #fff, 1000px 800px #fff,
+    200px 200px #fff, 1600px 400px #fff;
+  animation: animStar 100s linear infinite;
+}
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 600px 600px #fff, 200px 200px #fff, 1100px 400px #fff,
+    1300px 800px #fff;
+  animation: animStar 150s linear infinite;
+}
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* --- 2. REALISTIC METEORS --- */
+.meteors-container span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue), 0 0 30px #fff;
+  animation: meteor 3s linear infinite;
+  opacity: 0;
+}
+.meteors-container span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1px;
+  width: 250px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1),
+    rgba(102, 252, 241, 0.4) 30%,
+    transparent
+  );
+}
+@keyframes meteor {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-2000px);
+    opacity: 0;
+  }
+}
+/* Randomized Timing */
+.meteors-container span:nth-child(1) {
+  top: 0px;
+  left: 80%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+.meteors-container span:nth-child(2) {
+  top: 10%;
+  left: 110%;
+  animation-delay: 3s;
+  animation-duration: 3s;
+}
+.meteors-container span:nth-child(3) {
+  top: 30%;
+  left: 90%;
+  animation-delay: 7s;
+  animation-duration: 2s;
+}
+.meteors-container span:nth-child(4) {
+  top: -20%;
+  left: 50%;
+  animation-delay: 1.5s;
+  animation-duration: 3.5s;
+}
+.meteors-container span:nth-child(5) {
+  top: 50%;
+  left: 120%;
+  animation-delay: 5s;
+  animation-duration: 2.8s;
+}
+
+/* --- 3. COMETS --- */
+.comet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: -50px;
+  right: -50px;
+  opacity: 0;
+}
+.comet::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  width: 300px;
+  height: 25px;
+  transform-origin: right center;
+  transform: rotate(-35deg);
+  filter: blur(8px);
+  opacity: 0.7;
+}
+.comet-blue {
+  background: radial-gradient(circle, #fff, var(--neon-blue) 60%);
+  box-shadow: 0 0 20px var(--neon-blue), 0 0 50px var(--neon-blue);
+  animation: cometMove 25s linear infinite;
+}
+.comet-blue::after {
+  background: linear-gradient(to left, var(--neon-blue), transparent 80%);
+}
+
+.comet-red {
+  background: radial-gradient(circle, #fff, var(--neon-purple) 60%);
+  box-shadow: 0 0 20px var(--neon-purple), 0 0 50px var(--neon-purple);
+  animation: cometMove 35s linear infinite;
+  animation-delay: 10s;
+}
+.comet-red::after {
+  background: linear-gradient(to left, var(--neon-purple), transparent 80%);
+  width: 400px;
+}
+
+@keyframes cometMove {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-2500px, 1500px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* --- MENU SECTION --- */
+#menu {
+  padding: 100px 20px;
+  background: radial-gradient(circle at top, #1b2735 0%, #050608 100%);
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 80px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 10px var(--neon-purple), 0 0 30px var(--neon-purple);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Decorative line under title */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 4px;
+  background: var(--neon-blue);
+  margin: 10px auto 0;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- ADVANCED CARD DESIGN --- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Intense Hover Effect */
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 0 30px rgba(102, 252, 241, 0.15), 0 0 10px var(--neon-blue);
+  border-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-image-wrapper img {
+  transform: scale(1.15);
+  filter: brightness(0.5); /* Dim image to make text pop */
+}
+
+/* --- HOLOGRAPHIC INGREDIENTS OVERLAY --- */
+.ingredients-overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 10, 15, 0.95);
+  color: var(--neon-green);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: bottom 0.4s ease-in-out;
+  border-top: 2px solid var(--neon-green);
+  box-shadow: inset 0 0 20px rgba(57, 255, 20, 0.2);
+}
+
+.card:hover .ingredients-overlay {
+  bottom: 0;
+}
+
+/* "Scanning" Laser Effect Animation */
+.ingredients-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(57, 255, 20, 0.8);
+  box-shadow: 0 0 15px var(--neon-green);
+  animation: scanLine 2s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes scanLine {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.ingredients-overlay h4 {
+  font-family: var(--font-heading);
+  margin-bottom: 15px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 5px;
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+.ingredients-overlay ul {
+  list-style: none;
+  font-size: 0.9rem;
+  line-height: 2;
+  text-align: center;
+  font-family: "Courier New", monospace; /* Tech feel */
+  color: #ccffcc;
+}
+
+/* --- CARD CONTENT & FOOTER --- */
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-top: 1px solid rgba(102, 252, 241, 0.1);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: #b0bec5;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  margin-top: auto;
+}
+
+.origin {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.price {
+  color: var(--neon-purple);
+  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px var(--neon-purple);
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+  font-size: 0.9rem;
+  background: #020203;
+  border-top: 1px solid #111;
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+}
