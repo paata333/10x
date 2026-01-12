@@ -1,0 +1,193 @@
+
+*{
+    padding:0;
+    margin: 0;
+}
+body{
+   
+    background-color: #F5F5F7;
+}
+nav ul{
+    display: flex;
+    align-items:center ;
+    
+
+}
+nav li{
+    margin: 10px;
+    list-style: none;
+    font-size: 24px;
+    
+}
+nav{
+    margin-left: 20px;
+}
+.Rectangle-4{
+    width: 1240px;
+   
+    height: 72px;
+    background-color: #F5F5F7;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.logo{
+    color: blue;
+    font-size: 30px;
+    margin-left: 10px;
+    
+    
+}
+.Rectangle-6{
+    width: 152px;
+    height: 50px;
+    top: 11px;
+    left: 352px;
+    background-color:#F0EDFF;
+    align-content: center;
+  
+}
+.block-1{
+    margin-right: 30px;
+}
+.Rectangle-7{
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+    background-image: url('e11fe0289d1ad6e93656e54c43b99f9275d82560 (1).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.Rectangle-7 p{
+    max-width: 900px;
+    color: #FFFFFF;
+    text-align: center;
+
+}
+.Rectangle-7>.title{
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+.title +.txt{
+    font-size: 18px;
+    line-height: 1.5;
+}
+.main-heading{
+    
+    padding: 50px;
+    
+    font-style: initial;
+    font-size: 34px;
+   
+}
+.hero{
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap: 24px;
+    margin: auto;
+    max-width: 1200px;
+    padding-bottom: 90px;
+}
+.Rectangle-9{
+    width: 360px;
+    height: 474px;
+    background-color: red;
+}
+.Rectangle-10{
+    height: 240px;
+    width: 360px;
+    background-color: #C7B8FF;
+}
+.Rectangle-12{
+    width: 322px;
+    height: 200px;
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+.group-3 .Rectangle-10{
+    background-color: #FFB8D8;
+}
+.group-4 .Rectangle-10{
+    background-color: #B8E0FF;
+}
+.group-5 .Rectangle-10{
+    background-color: #D4FFB8;
+}
+.group-6 .Rectangle-10{
+    background-color: #FFE4B8;
+}
+.group-7 .Rectangle-10{
+    background-color: #FFD4B8;
+}
+span{
+    font-size: 12px;
+}
+.author{
+    padding-left: 55px;
+}
+.Rectangle-13{
+   background-color:  #252424;
+   width: 100%;
+   height: 403px;
+}
+.Rectangle-14{
+    width: 1240px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between; 
+    gap: 80px;
+    margin: 0 auto;
+    color: #A1A1A6;
+    padding-top: 60px;
+    
+}
+.paragraph{
+    
+    margin-left: 200px;
+}
+.paragraph-heading{
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+.paragraph-list{
+    
+    list-style: none;
+    padding: 0;
+
+}
+.paragraph-list li {
+    margin-bottom: 9px;
+}
+.paragraph, .group-8, .contact {
+  width: 296px;
+}
+.contact p {
+  margin-bottom: 9px;
+}
+.copy-right{
+    width: 100%;
+    height: 55px;
+    background-color: #020202;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.text-in-copy{
+    color: #86868B;
+  
+}
+.heading-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
