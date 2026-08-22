@@ -1,0 +1,72 @@
+
+#my-popover{
+    margin-left: var(--margin-left);
+    margin-top: var(--margin-top);
+}
+:root{
+    --margin-left:10px;
+    --margin-top:40px;
+}
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+ }
+.burger-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #FF6B1A;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    padding: 10px 12px;
+    position: relative;
+}
+.span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+span{
+    width: 10px;
+    height: 2px;
+    background-color:white;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size:17px;
+}
+li{
+    list-style: none;
+}
+ul{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#my-popover{
+    border: none;
+    position: absolute;
+    animation: slidein 1s ease 0s 1 forwards;
+}
+nav{
+    padding: 10px 30px;
+    background-color: black ;
+}
+@keyframes slidein {
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}

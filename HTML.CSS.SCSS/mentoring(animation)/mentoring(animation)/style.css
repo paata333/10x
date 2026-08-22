@@ -1,0 +1,272 @@
+/* =========================================
+   KA: დავალება: კოსმოსური მისია 🚀
+   მიჰყევი კომენტარებს და შეავსე გამოტოვებული ადგილები (???)
+   
+   EN: Task: Space Mission 🚀
+   Follow the comments and fill in the missing parts (???)
+   ========================================= */
+
+/* 1. KA: სცენის მომზადება | EN: Scene Setup */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    box-sizing: border-box;
+}
+
+.space-container {
+    /* KA: დავალება 1: შექმენი ფონი (linear-gradient). 
+       EN: Task 1: Create background (linear-gradient). 
+       hint(მინიშნება): linear-gradient(to bottom, #0b0d17, #1a1c2c);
+       or you can use any of color
+       */
+    background: linear-gradient(to bottom, #0b0d17, #1a1c2c);
+    
+    /* KA: დავალება 2: გაწელე კონტეინერი მთელ ეკრანზე.
+       EN: Task 2: Stretch container to full screen height.
+       hint(მინიშნება) widht and height
+       */
+    width: 100vw;
+    height: 100vh;
+
+    /* KA: დავალება 3: დამალე სქროლი (scroll).
+       EN: Task 3: Hide overflow to prevent scrolling. 
+       hint(მინიშნება): overflow
+       */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 2. KA: რაკეტის სტილი | EN: Rocket Style */
+
+/*  ვიბრაცია | EN: 12: Vibration
+    KA: იმისთვის რომ რაკეტას ქონდეს ფრენის ეფექტი 
+    უნდა ვამოძრაოთ ის ვერტიკალურ ღერძზე
+    EN: For a rocket to have the effect of flying,
+     we need to move it on a vertical axis.
+*/
+
+@keyframes subtle-shake {
+    from { transform: rotate(-45deg) translateY(0px); }
+    to { transform: rotate(-45deg) translateY(3px); }
+}
+
+.rocket {
+    /* KA: დავალება 4: ზომა 
+       EN: Task 4: Size 
+       hint(მინიშნება): font-size 
+       e.g 100px ან რამდენიც შენ გინდა
+       */
+    font-size: 100px;
+    z-index: 10;
+
+    /* KA: დავალება 5: მობრუნება -45 გრადუსით.
+       EN: Task 5: Rotate by -45 degrees. 
+       hint(მინიშნება): rotate:  <-ბრძანება
+       */
+    transform: rotate(-45deg);
+    
+    /* KA: დავალება 6: მიაბი რაკეტას 'subtle-shake' ანიმაცია.
+       KA: დრო: 0.2s, გამეორება: infinite, მიმართულება: alternate.
+       
+       EN: Task 6: Attach 'subtle-shake' animation.
+       EN: Time: 0.2s, Iteration: infinite, Direction: alternate.
+       */
+    animation: subtle-shake 0.2s infinite alternate;
+    transition: transform 0.3s ease;
+}
+
+
+/* KA: ვარსკვლავების სტილი | EN: Star Style */
+.star {
+    /* KA: დავალება 8: პოზიცია (absolute).
+       EN: Task 8: Position (absolute). */
+    position: absolute;
+    background-color: #fffcea; 
+    width: 4px; 
+    height: 4px;
+    border-radius: 50%;
+    
+    /* KA: დავალება 9: ნათების ეფექტი (Glow).
+       KA: გამოიყენე: 
+       box-shadow: 
+        0 0 4px 1px #fffcea, 
+        0 0 15px 4px rgba(255, 247, 214, 0.4); 
+       
+       EN: Task 9: Glow effect.
+       EN: Use: 
+       box-shadow: 
+        0 0 4px 1px #fffcea, 
+        0 0 15px 4px rgba(255, 247, 214, 0.4);  */
+    box-shadow: 
+        0 0 4px 1px #fffcea, 
+        0 0 15px 4px rgba(255, 247, 214, 0.4);
+    filter: blur(0.5px);
+}
+
+/* =========================================
+   5. KA: ანიმაციების შექმნა | EN: Creating Keyframes
+   ========================================= */
+
+/* KA: ვარდნა | EN:  Fall down */
+@keyframes fall-down {
+    0% {
+        /* KA: ეკრანის ზევით (-100px) | EN: Above screen (-100px) 
+        hint(მინიშნება): transform: translateY(???); 
+        */
+        transform: translateY(-100px);
+    }
+    100% {
+        /* KA: ეკრანის ქვევით (110vh) | EN: Below screen (110vh) 
+        hint(მინიშნება): transform: translateY(???);
+        */
+        transform: translateY(110vh);
+    }
+}
+
+/* KA:  ციმციმი | EN: Twinkle 
+    ციმციმის ეფექტი
+*/
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; scale: 0.8; }
+    50% { opacity: 1; scale: 1.2; }
+}
+
+
+
+/* =========================================
+   6. KA: ვარსკვლავების კონფიგურაცია | EN: Star Configuration
+   ========================================= */
+
+/* ℹ️ KA: სინტაქსის ახსნა (Syntax Explanation):
+   
+   ჩვენ ვიყენებთ "Shorthand" (შემოკლებულ) ვერსიას, რადგან ის უფრო მოკლე და სუფთაა.
+   სტრუქტურა: animation: [name] [duration] [timing-function] [delay] [iteration-count];
+   
+   მაგალითი (Example): 
+   animation: fall-down 4s linear 1s infinite;
+   
+   ---
+   
+   როგორ იქნებოდა ეს დაშლილად (Long-hand version):
+   animation-name: fall-down;
+   animation-duration: 4s;
+   animation-timing-function: linear;
+   animation-delay: 1s;
+   animation-iteration-count: infinite;
+
+   ---
+   KA: რადგან ვარსკვლავებს ორი ანიმაცია აქვთ (ვარდნა და ციმციმი), ისინი გამოიყოფა მძიმით:
+   EN: Since stars have two animations (fall & twinkle), separate them with a comma:
+   
+   animation: [fall-settings], [twinkle-settings];
+*/
+
+
+.star-1 { 
+    /* KA: პოზიცია | EN: Position */
+    left: 10%; 
+    top: -10%; 
+    animation: fall-down 4s linear infinite, twinkle 2s ease-in-out infinite;
+    /* KA:  მიაბი ანიმაციები ერთ ხაზზე (Shorthand).
+       1. fall-down: 4s, linear, infinite
+       2. twinkle: 2s, ease-in-out, infinite 
+       
+       EN: Attach animations in one line (Shorthand).
+       1. fall-down: 4s, linear, infinite
+       2. twinkle: 2s, ease-in-out, infinite 
+       hint(მინიშნება): animation: 'animation name and methods'
+                        animation: 'ანიმაციის სახელი და მეთოდები'
+       */
+}
+
+.star-2 { 
+    left: 30%; 
+    top: -20%; 
+    width: 6px; 
+    height: 6px; 
+    
+    /* KA:  გაზარდე ნათება (box-shadow) დიდი ვარსკვლავისთვის.
+       EN:  Increase glow (box-shadow) for the big star. 
+       hint(მინიშნება): დიდი ანიმაციებისთვის გაზარდეთ width და height
+                        for big stars increace -> widht and height 
+       */
+    animation: fall-down 6s linear 1s infinite, twinkle 3s ease-in-out infinite;
+    /* KA: დავალება 15: 
+       fall-down: 6s, linear, delay 1s, infinite.
+       twinkle: 3s, ease-in-out, infinite.
+       
+       EN: Task 15: 
+       fall-down: 6s, linear, delay 1s, infinite.
+       twinkle: 3s, ease-in-out, infinite. */
+        /* hint(მინიშნება): გამოიყენეთ "animation"
+        use "animation" property */
+}
+
+.star-3 { 
+    left: 35%; 
+    top: -20%; 
+    width: 8px; 
+    height: 6px;
+    /* KA: დავალება 16: შეარჩიე პოზიცია და ზომა (პატარა).
+       EN: Task 16: Choose position and size (small). */
+    /* hint(მინიშნება): left: ???; top: ???; width: ???; height: ???; */
+    animation: fall-down 4s linear 1s infinite, twinkle 3s ease-in-out infinite;
+    /* KA: დავალება 17: მიაბი ანიმაცია (შენი არჩეული დროით).
+       EN: Task 17: Attach animation (with your own timing). */
+    /* hint(მინიშნება):  animation: ???; */
+}
+
+.star-4 { 
+    left: 70%; 
+    top: -15%;
+    /* KA:  ანიმაცია | EN:  Animation */
+    /* hint(მინიშნება): animation: ???; */
+    animation: fall-down 4s linear 1s infinite, twinkle 3s ease-in-out infinite;
+}
+
+.star-5 { 
+    /* KA:  ეს ყველაზე დიდი ვარსკვლავია! (პოზიცია, ზომა, დიდი ნათება).
+       EN:  Biggest star! (Position, size, strong glow). */
+    /* hint(მინიშნება): left: ???; top: ???; width: 8px; height: 8px; */
+    left: 65%; 
+    top: -40%; 
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8);
+    
+    /* KA:  ყველაზე ნელი ანიმაცია.
+       EN:  Slowest animation. */
+    animation: fall-down 8s linear 2s infinite, twinkle 4s ease-in-out infinite;
+}
+
+/* KA: დავალება 21: შეავსე დარჩენილი ვარსკვლავები შენი გემოვნებით.
+   EN: Task 21: Fill the rest of the stars to your taste. */
+
+.star-6 { 
+    /* hint(მინიშნება): left: ???; top: ???; 
+    animation: ???;  */
+    left: 55%; 
+    top: -40%; 
+    animation: fall-down 5s linear 1s infinite, twinkle 3s ease-in-out infinite;
+}
+
+.star-7 { 
+    /* hint(მინიშნება): left: ???; top: ???; 
+    animation: ???;  */
+    left: 75%; 
+    top: -40%; 
+    animation: fall-down 7s linear 1.5s infinite, twinkle 3.5s ease-in-out infinite;
+}
+
+.star-8 { 
+    /* hint(მინიშნება): left: ???; top: ???; 
+    animation: ???;  */
+    left: 85%; 
+    top: -40%; 
+    animation: fall-down 6s linear 0.5s infinite, twinkle 2.5s ease-in-out infinite;
+}
