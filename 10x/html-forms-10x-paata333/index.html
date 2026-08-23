@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jovian Drift SOS</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <iframe id="bg-frame" src="./styles/effect.html" ></iframe>
+    <form method="post" action="#">
+        <fieldset>
+            <legend>Pilot Credentials</legend>
+
+            <label for="pilot-name">Pilot Name: </label>
+            <input type="text" id="pilot-name" name="pilot-name" required placeholder="Enter name">
+
+            <label for="Access">Access code</label>
+            <input type="password" id="Access" required placeholder="enter access code" name="acess_code">
+
+            <label for="identifier">Command Email:</label>
+            <input type="email" id="identifier" name="email" required>
+
+        </fieldset>
+        <fieldset>
+            <legend>Vessel Diagnostics</legend>
+
+            <label for="hull_damage">Hull Damage (%)</label>
+            <input type="number" name="hull_damage"  required id="hull_damage">
+
+            <label for="Emergency">Emergency Level:</label>
+            <select name="selected_element" id="Emergency" required>
+                <option value="low">low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="SOS">SOS Message</label>
+            <textarea name="SOS_mesage" id="SOS" rows="3"></textarea>
+            <div>
+                <input type="checkbox" id="quarantine" name="quarantine" required>
+                <label for="quarantine">I agree to quarantine protocols.</label>
+            </div>
+        </fieldset>
+         
+        <button type="submit">INITIATE TRANSMISSION</button>
+        <button type="reset">RESET SYSTEM</button>
+
+    </form>
+    <script src="./scripts/launch.js"></script>
+    
+</body>
+</html>

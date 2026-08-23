@@ -1,0 +1,182 @@
+/* --- GLOBAL STYLES (Don't touch these) --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+body { padding: 20px; background-color: #f4f4f4; }
+h1 { text-align: center; margin-bottom: 30px; color: #333; }
+section { margin-bottom: 40px; background-color: #ddd; border: 2px solid #bbb; width: 100%; }
+
+/* Common styles for boxes */
+.item {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+}
+
+/* --------------------------------------------------------- */
+/* ---------------- YOUR TASKS START HERE ------------------ */
+/* --------------------------------------------------------- */
+
+
+/* LEVEL 1: The Basics
+   Task:
+   1. Add a 30px gap between items. 
+*/
+.level-1 {
+    min-height: 100px;
+    /* CODE HERE: */
+    gap:30px;
+    display: flex;
+    
+}
+
+
+
+/* LEVEL 2: Justify Content (Main Axis)
+   Task:
+   1. Move all items to the END of the row (Right side).
+*/
+.level-2 {
+    min-height: 100px;
+    /* CODE HERE: */
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+
+/* LEVEL 3: Align Items (Cross Axis)
+   Task:
+   1. Align items to the END of the cross axis (Bottom).
+   (Note: container height is 200px)
+*/
+.level-3 {
+    height: 200px; 
+    /* CODE HERE: */
+    display: flex;
+    align-items:flex-end;
+
+}
+
+
+/* LEVEL 4: Perfect Centering
+   Task:
+   1. Center the item Horizontally.
+   2. Center the item Vertically.
+*/
+.level-4 {
+    height: 200px;
+    /* CODE HERE: */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* LEVEL 5: Column Direction
+   Task:
+   1. Make items stack vertically (Column).
+   2. Align items to the center (Horizontally in column mode).
+*/
+.level-5 {
+    min-height: 200px;
+    /* CODE HERE: */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+
+}
+
+
+/* LEVEL 6: Space Distribution
+   Task:
+   1. Create equal space BETWEEN the items so the first and last touch the edges.
+   2. Align them vertically in the center.
+*/
+.level-6 {
+    height: 100px;
+    /* CODE HERE: */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+
+/* LEVEL 7: Wrapping
+   Task:
+   1. Allow items to wrap to the next line if there isn't enough space.
+*/
+.level-7 {
+    /* We limit width to force wrapping */
+    width: 300px; 
+    min-height: 150px;
+    background-color: #bdc3c7;
+    /* CODE HERE: */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* LEVEL 8: Flex Grow
+   Task:
+   1. Target the '.content' class below and make it take up all remaining space.
+*/
+.level-8 {
+    min-height: 100px;
+    /* CODE HERE */
+    display: flex;
+}
+
+.level-8 .content {
+    background-color: #e74c3c;
+    /* CODE HERE : */
+    flex-grow: 1;
+
+}
+
+
+/* LEVEL 9: Align Self
+   Task:
+   1. Turn on Flexbox on container.
+   2. Target the '.rebel' item and make ONLY that item go to the bottom.
+*/
+.level-9 {
+    height: 200px;
+    display: flex;
+    align-items: flex-start; 
+}
+
+.level-9 .rebel {
+    background-color: #2ecc71;
+    /* CODE HERE: */
+    align-self: flex-end;
+
+}
+
+
+/* LEVEL 10: Ordering
+   Task:
+   1. Visually move the item with class '.first' to the very end of parent element.
+   2. Make elements stay in column
+*/
+.level-10 {
+    min-height: 100px;
+    /* CODE HERE (Container): */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.level-10 .first {
+    background-color: #9b59b6;
+    /* CODE HERE (Item): */
+    order: 2;
+
+}

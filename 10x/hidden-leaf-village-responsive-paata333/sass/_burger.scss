@@ -1,0 +1,102 @@
+$margin-left: 0rem;
+$margin-top: 19.2rem;
+
+.burger-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: #FF6B1A;
+    color: #ffffff;
+    border-radius: 0.8rem;
+    border: none;
+    padding: 1.2rem 1.5rem;
+    position: relative;
+}
+.burger-menu:hover{
+    background:fade-in($color: #f58e57, $amount: 1) ;
+}
+.span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:0.2rem;
+}
+span{
+    width: 1rem;
+    height: 0.2rem;
+    background-color:white;
+    display: block;
+}
+// a{
+//     text-decoration: none;
+//     color: white;
+//     font-size:1.7rem;
+// }
+// li{
+//     list-style: none;
+//     padding: 1rem 2rem 1rem 1rem;
+//     width: 100%;
+//     border-bottom: 0.1px solid white;
+// }
+// ul{  
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     // gap: 0.5rem;
+// }
+#my-popover{
+    border: none;
+    position: absolute;
+    animation: slidein 0.5s ease 0s 1 forwards;
+    margin-left: $margin-left;
+    margin-top: $margin-top;
+    border-radius: 0.3rem ;
+    // transition: transform 0.5s ease, opacity 0.5s ease;
+    div{
+        // padding: 1rem 3rem;
+        background-color: rgb(66, 57, 57) ;  
+        ul{  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            // gap: 0.5rem;
+            li{
+                list-style: none;
+                padding: 1rem 2rem 1rem 1rem;
+                width: 100%;
+                border-bottom: 0.1px solid white;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    font-size:1.7rem;
+                }
+            }
+
+        }
+    }
+}
+@keyframes slidein {
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes slideout {
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-400);
+    }    
+}
+#my-popover{
+    li:hover{
+        background-color: black;
+    }
+}
